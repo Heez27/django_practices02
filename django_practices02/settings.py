@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'helloworld',
+    'emaillist01',
     'guestbook01',  # 추가는 terminal에서 'python manage.py startapp guestbook01'를 실행 후 쓰기!
                     #아니면,'ModuleNotFoundError: No module named 'guestbook01''에러뜸
     'django.contrib.admin',
