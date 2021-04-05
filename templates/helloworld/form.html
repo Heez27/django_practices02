@@ -1,14 +1,4 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--</body>-->
-<!--</html>-->
-
+<!--회원 가입 메뉴-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +7,9 @@
 </head>
 <body>
     <h1>회원 가입</h1>
+<!-- 이메일, 비밀번호, 성별, 취미, 자기소개 5가지 form-->
+<!-- 참고: {% csrf_token %}는 csrf공격 방지위해-->
+<!-- 폼 데이터에는 악의적인 스크립트 문장이 들어있을 수도 있기때문-->
     <form action="/join" method="post">{% csrf_token %}
         이메일: <input type="text" name="email" value=""/>
         <br/><br/>
@@ -24,6 +17,7 @@
         비밀번호: <input type="password" name="password" value=""/>
         <br/><br/>
 
+<!--    성별에서는 '남'과 '여'의 name = "gender"로 같아서, 상호배타적으로 선택가능-->
         성별: <input type="radio" name="gender" value="male"/>남 <input type="radio" name="gender" value="female" checked="checked"/>여
         <br/><br/>
 
@@ -34,8 +28,9 @@
         <input type="checkbox" name="hobbies" value="cooking">요리
         <br/><br/>
 
+<!--    name은 description약자로 지음. width는 가로 길이, height는 세로길이 -->
         자기소개:<br/>
-        <textarea name="desc" style="width:200px; height:100px"></textarea>
+        <textarea name="desc" style="width:300px; height:200px"></textarea>
         <br/><br/>
 
         <input type="submit" value="가입"/>
