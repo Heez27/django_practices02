@@ -86,6 +86,7 @@ import os
 ```
 
 #### 2. helloworld application 만들기
+###참고: 1번과 2번을 거꾸로 하면, ModuleNotFoundError: No module named '모듈이름' error
 1) application 생성
 ```shell
 (venv) # python manage.py startapp helloworld
