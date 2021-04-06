@@ -86,7 +86,6 @@ import os
 ```
 
 #### 2. helloworld application 만들기
-###참고: 1번과 2번을 거꾸로 하면, ModuleNotFoundError: No module named '모듈이름' error
 1) application 생성
 ```shell
 (venv) # python manage.py startapp helloworld
@@ -114,7 +113,7 @@ django_practices
 
 
 #### 3. emailist01 application 만들기
-1) application 생성
+1) application 생성(1번과 2번을 거꾸로 하면, ModuleNotFoundError: No module named '모듈이름' error남)
 ```shell
 (venv) # python manage.py startapp emaillist01
 ```
@@ -122,7 +121,7 @@ django_practices
 2) application 등록(settings.py)
 ```python
 INSTALLED_APPS = [
-    'emaillist01'    
+    'emaillist01',    
     'helloworld',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -170,3 +169,121 @@ django_practices
         |--- guestbook01
 
 4) urls.py 에 URL 등록하고 views.py 에 요청 처리 함수만들고 template(html) 연결하고.....  (반복반복)
+
+5) template filter 사용
+- linebreaksbr:    'aaaa\nbbbb'  --|->  'aaaa&lt;br&gt;bbbb'
+- mathfilters
+  1. 설치
+     ```shell
+        (venv) # pip install django-mathfilters
+     ```
+  2. 설정
+     ````python
+        INSTALLED_APPS = [
+     
+            'mathfilters',
+     
+        ]        
+     ````
+  3. 사용예
+     ```html
+        {% load mathfilters %}
+     
+        <p>
+            10 - 5 + 1 = {{ 10 | sub:5 | add:1 }}
+        </p>
+  
+     ```
+     
+#### 5. emailist02 application 만들기(ORM 적용)
+1) application 생성
+```shell
+(venv) # python manage.py startapp emaillist02
+```
+
+2) application 등록(settings.py)
+```python
+INSTALLED_APPS = [
+    'emaillist01',    
+    'emaillist02',    
+    'helloworld',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+3) application의 template 디렉토리 생성
+django_practices
+|--- templates
+        |--- helloworld
+        |--- emaillist01
+        |--- emaillist02
+
+4) Model class 정의하고 테이블 생성
+    ```python
+       class Emaillist(models.Model):
+          first_name = models.CharField(max_length=45)
+          last_name = models.CharField(max_length=45)
+          email = models.CharField(max_length=200)
+
+          def __str__(self):
+             return f'Emaillist({self.first_name}, {self.last_name}, {self.email})'
+    ```   
+
+    ```shell
+        (venv) # python manage.py makemigrations
+        (venv) # python manage.py migrate
+    ```   
+
+5) urls.py 에 URL 등록하고 views.py 에 요청 처리 함수만들고 template(html) 연결하고.....  (반복반복)
+
+
+#### 6. guestbook02 application 만들기(ORM 적용)
+1) application 생성
+```shell
+(venv) # python manage.py startapp guestbook02
+```
+
+2) application 등록(settings.py)
+```python
+INSTALLED_APPS = [
+    'guestbook01',    
+    'guestbook02',    
+    'helloworld',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+3) application의 template 디렉토리 생성
+django_practices
+|--- templates
+        |--- helloworld
+        |--- guestbook01
+        |--- guestbook02
+
+4) Model class 정의하고 테이블 생성
+    ```python
+       class Emaillist(models.Model):
+          first_name = models.CharField(max_length=45)
+          last_name = models.CharField(max_length=45)
+          email = models.CharField(max_length=200)
+
+          def __str__(self):
+             return f'Emaillist({self.first_name}, {self.last_name}, {self.email})'
+    ```   
+
+    ```shell
+        (venv) # python manage.py makemigrations
+        (venv) # python manage.py migrate
+    ```   
+
+5) urls.py 에 URL 등록하고 views.py 에 요청 처리 함수만들고 template(html) 연결하고.....  (반복반복)
