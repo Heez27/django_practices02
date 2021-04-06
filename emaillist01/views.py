@@ -1,3 +1,4 @@
+# emaillist01/views.py
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 

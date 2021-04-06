@@ -13,6 +13,8 @@ import os #추가
 
 from pathlib import Path
 
+#django_practices02/settings.py
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

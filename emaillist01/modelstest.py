@@ -1,3 +1,4 @@
+# emaillist01/modelstest.py
 from guestbook01.models import findall, insert, deleteby_no_and_password
 
 
