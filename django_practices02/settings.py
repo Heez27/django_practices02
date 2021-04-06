@@ -32,10 +32,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mathfilters', # (venv) pip install django-mathfilters
     'helloworld', #추가
     'emaillist01', #추가
+    'emaillist02',
     'guestbook01',  # 참고: 추가는 terminal에서 'python manage.py startapp guestbook01'를 실행 후 쓰기!
-                    # 아니면,'ModuleNotFoundError: No module named 'guestbook01''에러뜸
+    'guestbook02',  # 아니면,'ModuleNotFoundError: No module named 'guestbook01''에러뜸
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -118,7 +121,8 @@ TIME_ZONE = 'Asia/Seoul'  #수정
 
 USE_I18N = True
 
-USE_L10N = True
+DATETIME_FORMAT = "Y-m-d P h:i:s" #추가
+L10N = False # 수정
 
 USE_TZ = True
 

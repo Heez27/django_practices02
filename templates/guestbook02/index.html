@@ -5,7 +5,7 @@
 <title>방명록</title>
 </head>
 <body>
-	<form action="/guestbook01/add" method="post">
+	<form action="/guestbook02/add" method="post">
 		{% csrf_token %}
 		<table border=1 width=500>
 			<tr>
@@ -26,8 +26,8 @@
 			<tr>
 				<td>{{ guestbooklist | length | sub:forloop.counter | add:1 }}</td>
 				<td>{{ guestbook.name }}</td>
-				<td>{{ guestbook.reg_date }}</td>
-				<td><a href="/guestbook01/deleteform?no={{ guestbook.no }}">삭제</a></td>
+				<td>{{ guestbook.regdate }}</td>
+				<td><a href="/guestbook02/deleteform?id={{ guestbook.id }}">삭제</a></td>
 			</tr>
 			<tr>
 				<td colspan=4>{{ guestbook.message | linebreaksbr }}</td>
