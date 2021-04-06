@@ -54,7 +54,7 @@ DatabaseWrapper.data_types['DateTimeField'] = 'datetime'
 (env) # python manage.py createsuperuser
 
 Username (leave blank to use 'bit_r39'): admin
-Email address: kickscar@gmail.com
+Email address: ohhj6835@gmail.com
 Password:
 Password (again):
 Superuser created successfully.
